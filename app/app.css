@@ -1,0 +1,36 @@
+:root{
+    --green: #02f100;
+}
+
+@font-face{
+    font-display:fallback;
+    font-family:Aktiv Grotesk;
+    font-stretch:normal;
+    font-weight:200 800;
+    src:url(assets/AktivGroteskVF_W_WghtWdthItal.woff2) format("woff2")
+}
+
+body{
+    font-family:Aktiv Grotesk,sans-serif;
+}
+
+::backdrop {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.8)
+    );
+}
+dialog:focus-visible{
+    outline: none;
+}
+
+
+.v-enter-active, .v-leave-active {
+    transition: all 0.5s ease;
+}
+
+.v-enter-from, .v-leave-to {
+  opacity: 0;
+  transform:  translateY(10%) rotateZ(-6deg);
+}

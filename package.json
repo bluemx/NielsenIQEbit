@@ -1,0 +1,20 @@
+{
+  "name": "nielseniqebit",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "npx tailwindcss build -i app/app.css -o app/style.css --minify --watch",
+    "sync": "browser-sync start --server --files 'app/*.css' 'app/*.js' '*.html' "
+  },
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "browser-sync": "^2.29.3",
+    "tailwindcss": "^3.3.3"
+  }
+}

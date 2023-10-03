@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NielsenIQ Ebit</title>
+    <link rel="stylesheet" href="app/app.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                main: '#02f100',
+                second: '#eb1b2c',
+                third: '#1f2c74'
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body class="h-full">
+    <div class="flex flex-col h-screen w-full">
+        <div id="app" class="w-full grow bg-black text-white p-5 flex flex-col justify-center items-center">
+            
+            <div class="w-full max-w-6xl mx-auto flex flex-col gap-5 h-full justify-center">
+                <div v-if="appState<3" class="w-full max-w-xl mx-auto pt-10 pb-5 px-1"><img src="app/assets/Ebit.png" class="w-full"></div>
+                
+                    <Transition mode="out-in">
+                        <template v-if="appState==0" >
+                            <surveyid @ready="storeSurvey"></surveyid>
+                        </template>
+                        <template v-else-if="appState==1">
+                            <form-collect  @ready="storeForm"></form-collect>
+                        </template>
+                        <template v-else-if="appState==2">
+                            <div>
+                                <div class="text-white p-5 text-center animate-pulse">Antes de empezar, por favor indica el certificado electrónico que quisieras recibir en caso de resultar ganador.</div>
+                                <certificates-list @ready="storeCertificate" :list="certificatesobj"></certificates-list>
+                            </div>
+                        </template>
+                        <template v-else-if="appState==3">
+                            <activity-screen @ready="storeScore" @close="appState == 2" :idp="IDP"></activity-screen>
+                        </template>
+                        
+
+                    </Transition>
+                
+            </div>
+
+
+
+        </div> <!--/#app-->
+
+        <blue-footer  class="grow-0"></blue-footer>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/vue@3.3.4/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-demi@0.14.6/lib/index.iife.js"></script>
+    <script src="https://unpkg.com/pinia@2.1.6/dist/pinia.iife.js"></script>
+    <script src="https://unpkg.com/axios@1.5.1/dist/axios.min.js"></script>
+
+    <script src="https://unpkg.com/@bluemx/blue-components"></script>
+
+    <script type="module" src="app/components/LoadingStatus.js"></script>
+    <script type="module" src="app/components/ModalDialog.js"></script>
+    <script type="module" src="app/components/SurveyID.js"></script>
+    <script type="module" src="app/components/FormCollect.js"></script>
+    <script type="module" src="app/components/CertificatesList.js"></script>
+    <script type="module" src="app/components/ActivityScreen.js"></script>
+    <script type="module" src="app/components/ParticipationID.js"></script>
+    
+    <script type="module" src="app/certificates.js"></script>
+
+    <script type="module" src="app/app.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+</body>
+</html>
