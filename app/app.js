@@ -7,6 +7,7 @@ import ActivityScreen from './components/ActivityScreen.js'
 import ParticipationID from './components/ParticipationID.js';
 
 import certis from './certificates.js'
+import TermsConditions from './components/TermsConditions.js';
 
 window.api = 'https://bluetest.mx/Nielsen/Services.aspx'
 
@@ -79,6 +80,7 @@ app.component('loading-status', LoadingStatus)
 app.component('modal-dialog', ModalDialog)
 app.component('surveyid', SurveyID)
 app.component('form-collect', FormCollect)
+app.component('terms-conditions', TermsConditions)
 app.component('certificates-list', CertificatesList)
 app.component('activity-screen', ActivityScreen)
 app.component('participation-id', ParticipationID)

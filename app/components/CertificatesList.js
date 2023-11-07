@@ -4,7 +4,6 @@ export default {
     template: `
         <div class="flex gap-2 flex-wrap justify-center">
             <template v-for="(item, index) in list">
-
                     <div class="bg-white text-black p-5 text-center w-40 md:w-60">
                         <img :src="'app/certificates/'+item.image" class="w-full">
                         <div class="grid grid-cols-2 gap-2">

@@ -10,7 +10,7 @@ export default {
         <transition>
             <participation-id v-if="ended && idp" :idp="idp"></participation-id>
         </transition>
-</modal-dialog>
+    </modal-dialog>
     `,
     data () {
         return {

@@ -16,7 +16,9 @@ export default {
                 event.preventDefault();
             });
         },
-        closeDialog(){},
+        closeDialog(){
+            this.$refs.dialog.hide()
+        },
     },
     mounted() {
         this.openDialog()
